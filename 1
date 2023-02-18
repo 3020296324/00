@@ -1,0 +1,1570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Have been confused, again will lead to code not available.-->
+
+-<Lockscreen vibrate="false" version="1" screenWidth="1080" frameRate="240" _devTime="1676525832878" _dev="civet">
+
+<Var name="civet_code_fb" expression="ifelse(eqs(@weather_condition,'晴'),#civet_code_gm,eqs(@weather_condition,'雨')+eqs(@weather_condition,'冻雨')+eqs(@weather_condition,'雨夹雪')+eqs(@weather_condition,'阵雨')+eqs(@weather_condition,'小雨')+eqs(@weather_condition,'中雨')+eqs(@weather_condition,'大雨')+eqs(@weather_condition,'暴雨')+eqs(@weather_condition,'大暴雨')+eqs(@weather_condition,'特大暴雨')+eqs(@weather_condition,'小到中雨')+eqs(@weather_condition,'中到大雨')+eqs(@weather_condition,'大到暴雨')+eqs(@weather_condition,'暴雨到大暴雨')+eqs(@weather_condition,'大暴雨到特大暴'),#civet_code_gi,eqs(@weather_condition,'阵雪')+eqs(@weather_condition,'小雪')+eqs(@weather_condition,'中雪')+eqs(@weather_condition,'大雪')+eqs(@weather_condition,'暴雪')+eqs(@weather_condition,'小到中雪')+eqs(@weather_condition,'中到大雪')+eqs(@weather_condition,'大到暴雪'),#civet_code_gl,eqs(@weather_condition,'多云'),#civet_code_gg,eqs(@weather_condition,'雷阵雨')+eqs(@weather_condition,'雷阵雨伴有冰雹'),#civet_code_gn,eqs(@weather_condition,'风'),#civet_code_gp,eqs(@weather_condition,'阴'),#civet_code_fz,eqs(@weather_condition,'霾'),#civet_code_ge,eqs(@weather_condition,'浮尘')+eqs(@weather_condition,'扬沙')+eqs(@weather_condition,'沙尘暴')+eqs(@weather_condition,'强沙尘暴'),#civet_code_gb,eqs(@weather_condition,'雾'),#civet_code_gc,#civet_code_go)"/>
+
+<Var name="civet_code_ez" expression="ifelse(eqs(@cur_weather,'晴')+eqs(@cur_weather,'大部晴朗'),#civet_code_gm,eqs(@cur_weather,'多云')+eqs(@civet_code_fe,'云'),#civet_code_gg,eqs(@cur_weather,'阴'),#civet_code_fz,eqs(@cur_weather,'雾'),#civet_code_gc,eqs(@civet_code_fe,'雨')+eqs(@civet_code_ff,'雨')+eqs(@civet_code_fg,'雨')+eqs(@civet_code_fh,'雨'),#civet_code_gi,eqs(substr(@cur_weather,0,3),'雷阵雨')+eqs(@cur_weather,'冻雨')+eqs(@cur_weather,'雷阵雨伴有冰雹'),#civet_code_gn,eqs(@civet_code_fe,'雪')+eqs(@civet_code_ff,'雪')+eqs(@civet_code_fg,'雪')+eqs(@civet_code_fd,'雪'),#civet_code_gl,eqs(@cur_weather,'浮尘')+eqs(@civet_code_fd,'沙')+eqs(@civet_code_fe,'沙'),#civet_code_gb,eq(#weather_type,50)+eqs(@cur_weather,'霾')+eqs(@civet_code_ff,'霾'),#civet_code_ge,0)"/>
+
+<Var name="civet_code_fd" expression="substr(@cur_weather,0,1)" type="string"/>
+
+<Var name="civet_code_fe" expression="substr(@cur_weather,1,1)" type="string"/>
+
+<Var name="civet_code_ff" expression="substr(@cur_weather,2,1)" type="string"/>
+
+<Var name="civet_code_fg" expression="substr(@cur_weather,3,1)" type="string"/>
+
+<Var name="civet_code_fh" expression="substr(@cur_weather,4,1)" type="string"/>
+
+
+-<Weather>
+
+<Var name="Weather.yesterday.maxtemp" expression="0" type="int"/>
+
+<Var name="Weather.yesterday.mintemp" expression="0" type="int"/>
+
+<Var name="Weather.today.maxtemp" expression="0" type="int"/>
+
+<Var name="Weather.today.mintemp" expression="0" type="int"/>
+
+<Var name="Weather.tomorrow.maxtemp" expression="0" type="int"/>
+
+<Var name="Weather.tomorrow.mintemp" expression="0" type="int"/>
+
+<Var name="Weather.today.currentTem" expression="0" type="int"/>
+
+<Var name="Weather.yesterday.weatherIcon" expression="2" type="int"/>
+
+<Var name="Weather.today.weatherIcon" expression="2" type="int"/>
+
+<Var name="Weather.tomorrow.weatherIcon" expression="2" type="int"/>
+
+<Var name="Weather.yesterday.weatherIconDes" expression="'多云'" type="string"/>
+
+<Var name="Weather.today.weatherIconDes" expression="'多云'" type="string"/>
+
+<Var name="Weather.tomorrow.weatherIconDes" expression="'多云'" type="string"/>
+
+<Var name="Weather.today.humidity" expression="'0'" type="string"/>
+
+<Var name="Weather.today.aqivaluetext" expression="'优质'" type="string"/>
+
+<Var name="Weather.today.winddirDes" expression="'东南风'" type="string"/>
+
+</Weather>
+
+<Var name="civet_code_gh" expression="99" const="true"/>
+
+<Var name="civet_code_go" expression="99" const="true"/>
+
+<Var name="civet_code_gm" expression="0+20*#civet_code_bq" const="true"/>
+
+<Var name="civet_code_gg" expression="1+#civet_code_bq" const="true"/>
+
+<Var name="civet_code_fz" expression="3" const="true"/>
+
+<Var name="civet_code_gi" expression="4" const="true"/>
+
+<Var name="civet_code_ga" expression="7" const="true"/>
+
+<Var name="civet_code_gl" expression="8" const="true"/>
+
+<Var name="civet_code_gc" expression="9" const="true"/>
+
+<Var name="civet_code_gj" expression="5" const="true"/>
+
+<Var name="civet_code_ge" expression="10" const="true"/>
+
+<Var name="civet_code_gn" expression="6" const="true"/>
+
+<Var name="civet_code_gb" expression="11" const="true"/>
+
+<Var name="civet_code_gf" expression="12" const="true"/>
+
+<Var name="civet_code_gp" expression="13" const="true"/>
+
+<Var name="civet_code_gd" expression="7" const="true"/>
+
+<Var name="civet_code_gk" expression="15" const="true"/>
+
+<Var name="civet_code_ey" expression="ifelse(eq(#civet_code_bj,0),#civet_code_ez,eq(#civet_code_bj,2),#civet_code_fa,eq(#civet_code_bj,4),#mWeatherDes_4,#civet_code_go)" type="number"/>
+
+<Var name="civet_code_fa" expression="ifelse(eq(#Weather.today.weatherIcon,0)+eq(#Weather.today.weatherIcon,9)+eq(#Weather.today.weatherIcon,10)+eq(#Weather.today.weatherIcon,27)+eq(#Weather.today.weatherIcon,28),#civet_code_go,eq(#Weather.today.weatherIcon,1)+eq(#Weather.today.weatherIcon,33),#civet_code_gm,eq(#Weather.today.weatherIcon,2)+eq(#Weather.today.weatherIcon,34),#civet_code_gm,eq(#Weather.today.weatherIcon,3),#civet_code_gm,eq(#Weather.today.weatherIcon,4),#civet_code_gg,eq(#Weather.today.weatherIcon,5)+eq(#Weather.today.weatherIcon,37),#civet_code_ge,eq(#Weather.today.weatherIcon,6),#civet_code_gg,eq(#Weather.today.weatherIcon,7),#civet_code_gg,eq(#Weather.today.weatherIcon,8)+eq(#Weather.today.weatherIcon,75),#civet_code_fz,eq(#Weather.today.weatherIcon,11),#civet_code_gc,eq(#Weather.today.weatherIcon,12),#civet_code_gj,eq(#Weather.today.weatherIcon,13),#civet_code_gj,eq(#Weather.today.weatherIcon,14),#civet_code_gj,eq(#Weather.today.weatherIcon,15),#civet_code_gn,eq(#Weather.today.weatherIcon,16),#civet_code_gn,eq(#Weather.today.weatherIcon,17),#civet_code_gn,eq(#Weather.today.weatherIcon,18),#civet_code_gi,eq(#Weather.today.weatherIcon,19),#civet_code_gl,eq(#Weather.today.weatherIcon,20),#civet_code_gl,eq(#Weather.today.weatherIcon,21),#civet_code_gl,eq(#Weather.today.weatherIcon,22),#civet_code_gl,eq(#Weather.today.weatherIcon,23),#civet_code_gl,eq(#Weather.today.weatherIcon,24),#civet_code_gd,eq(#Weather.today.weatherIcon,25)+eq(#Weather.today.weatherIcon,29),#civet_code_gk,eq(#Weather.today.weatherIcon,26),#civet_code_gi,eq(#Weather.today.weatherIcon,30),#civet_code_gf,eq(#Weather.today.weatherIcon,31),#civet_code_ga,eq(#Weather.today.weatherIcon,32),#civet_code_gp,eq(#Weather.today.weatherIcon,35),#civet_code_gj,eq(#Weather.today.weatherIcon,36),#civet_code_gg,eq(#Weather.today.weatherIcon,38),#civet_code_gg,eq(#Weather.today.weatherIcon,39),#civet_code_gj,eq(#Weather.today.weatherIcon,40),#civet_code_gj,eq(#Weather.today.weatherIcon,41),#civet_code_gn,eq(#Weather.today.weatherIcon,42),#civet_code_gn,eq(#Weather.today.weatherIcon,43),#civet_code_gl,eq(#Weather.today.weatherIcon,44),#civet_code_gl,eq(#Weather.today.weatherIcon,45),#civet_code_gd,eq(#Weather.today.weatherIcon,46),#civet_code_gi,eq(#Weather.today.weatherIcon,47),#civet_code_gi,eq(#Weather.today.weatherIcon,48),#civet_code_gi,eq(#Weather.today.weatherIcon,49),#civet_code_gj,eq(#Weather.today.weatherIcon,50),#civet_code_gj,eq(#Weather.today.weatherIcon,51),#civet_code_gj,eq(#Weather.today.weatherIcon,52),#civet_code_gl,eq(#Weather.today.weatherIcon,53),#civet_code_gl,eq(#Weather.today.weatherIcon,54),#civet_code_gl,eq(#Weather.today.weatherIcon,55),#civet_code_gl,eq(#Weather.today.weatherIcon,56),#civet_code_gb,eq(#Weather.today.weatherIcon,57),#civet_code_gi,eq(#Weather.today.weatherIcon,58),#civet_code_gi,eq(#Weather.today.weatherIcon,59),#civet_code_gj,eq(#Weather.today.weatherIcon,60),#civet_code_gj,eq(#Weather.today.weatherIcon,61),#civet_code_gj,eq(#Weather.today.weatherIcon,62),#civet_code_gl,eq(#Weather.today.weatherIcon,63),#civet_code_gl,eq(#Weather.today.weatherIcon,64),#civet_code_gl,eq(#Weather.today.weatherIcon,65),#civet_code_gb,eq(#Weather.today.weatherIcon,66),#civet_code_gb,eq(#Weather.today.weatherIcon,67),#civet_code_gb,eq(#Weather.today.weatherIcon,68),#civet_code_gc,eq(#Weather.today.weatherIcon,69),#civet_code_gc,eq(#Weather.today.weatherIcon,70),#civet_code_ge,eq(#Weather.today.weatherIcon,71),#civet_code_ge,eq(#Weather.today.weatherIcon,72),#civet_code_ge,eq(#Weather.today.weatherIcon,73),#civet_code_gc,eq(#Weather.today.weatherIcon,74),#civet_code_gc,eq(#Weather.today.weatherIcon,76),#civet_code_gl,#civet_code_go)" type="number"/>
+
+<CompressRate value="0.22:97:428"/>
+
+<Var name="civet_code_e" expression="ifelse(gt((#screen_height/(#civet_code_dh.bmp_height)),(#screen_width/(#civet_code_dh.bmp_width))),(#screen_height+4)/(#civet_code_dh.bmp_height),(#screen_width+4)/(#civet_code_dh.bmp_width))-1"/>
+
+<Var name="civet_code_co" expression="1" const="true"/>
+
+<Image name="civet_code_dh" y="(1-int(#screen_height/#civet_code_dh.bmp_height))*ifelse(eq(#civet_code_co,0),0,eq(#civet_code_co,1),(#screen_height-(#civet_code_dh.bmp_height))/2,(#screen_height-(#civet_code_dh.bmp_height)))" x="(#screen_width)/2" srcid="#civet_code_dg" src="bz.jpg" alignV="top" align="center"/>
+
+<Wallpaper src="bs.jpg" w="#screen_width" h="#screen_height"/>
+
+<Image y="#screen_height/2-1170*(1+#civet_code_e)" x="#screen_width/2-540*(1+#civet_code_e)" srcid="#civet_code_dg" src="bz.jpg" w="1080*(1+#civet_code_e)" h="2340*(1+#civet_code_e)" visibility="1"/>
+
+<Video name="civet_code_br" y="#screen_height/2-1170*(1+#civet_code_e)" x="#screen_width/2-540*(1+#civet_code_e)" src="video.mp4" w="1080*(1+#civet_code_e)" h="2340*(1+#civet_code_e)" visibility="eq(#mBzIds,0)" isMusic="false" defaultBitmap="trans.png" scaleType="fit_width" living="false" sound="0" play="false"/>
+
+<Video name="civet_code_bs" y="#screen_height/2-1170*(1+#civet_code_e)" x="#screen_width/2-540*(1+#civet_code_e)" src="video.mp4" w="1080*(1+#civet_code_e)" h="2340*(1+#civet_code_e)" visibility="eq(#mBzIds,1)" isMusic="false" defaultBitmap="trans.png" scaleType="fit_width" living="false" sound="0" play="false"/>
+
+<Image y="#screen_height/2-1170*(1+#civet_code_e)" x="#screen_width/2-540*(1+#civet_code_e)" srcid="#civet_code_dg" src="bz_a.jpg" w="1080*(1+#civet_code_e)" h="2340*(1+#civet_code_e)" visibility="eq(#mBzIds,2)"/>
+
+
+-<Var name="civet_code_d" expression="#civet_code_ex" threshold="1">
+
+
+-<Trigger>
+
+<VideoCommand name="civet_code_br" src="video.mp4" play="false"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_c" expression="#civet_code_cn" threshold="1">
+
+
+-<Trigger>
+
+<VideoCommand name="civet_code_br" src="video1.mp4" play="false"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_fs" expression="#civet_code_eu" threshold="1">
+
+
+-<Trigger>
+
+<VideoCommand name="civet_code_br" src="video.mp4" play="true"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_a" expression="#civet_code_ck" threshold="1">
+
+
+-<Trigger>
+
+<VideoCommand name="civet_code_br" src="video1.mp4" play="true"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_fu" expression="#civet_code_ew" threshold="1">
+
+
+-<Trigger>
+
+<VideoCommand name="civet_code_br" play="false"/>
+
+<VideoCommand name="civet_code_bs" play="false"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_ft" expression="#civet_code_ev" threshold="1">
+
+
+-<Trigger>
+
+<VideoCommand name="civet_code_bs" src="video.mp4" play="true"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_b" expression="#civet_code_cl" threshold="1">
+
+
+-<Trigger>
+
+<VideoCommand name="civet_code_bs" src="video1.mp4" play="true"/>
+
+</Trigger>
+
+</Var>
+
+<Var name="civet_code_df" expression="74" type="number"/>
+
+<Var name="civet_code_ch" expression="ifelse(#civet_code_cg,2,1)" type="number"/>
+
+
+-<Button y="0+(1098+#civet_code_bp/2)*#civet_code_dn" x="0" w="#screen_width" h="#screen_height" visibility="eq(#mBzIds,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="long">
+
+<VariableCommand name="civet_code_ev" expression="#civet_code_ev+1" type="number" condition="eq(#civet_code_dg,0)"/>
+
+<VariableCommand name="civet_code_cl" expression="#civet_code_cl+1" type="number" condition="eq(#civet_code_dg,1)"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Group y="#civet_code_bp/2">
+
+
+-<Group alias="TimeGroup">
+
+
+-<Group visibility="eq(#civet_code_di,0)">
+
+<Image y="1476" x="190" srcid="int(#civet_code_cd/10)" src="assets/a/h.png" alignV="center" align="center"/>
+
+<Image y="1476" x="344" srcid="int(#civet_code_cd%10)" src="assets/a/h.png" alignV="center" align="center"/>
+
+<Image y="1690" x="166" srcid="int(#minute/10)" src="assets/a/m.png" alignV="center" align="center"/>
+
+<Image y="1690" x="252" srcid="int(#minute%10)" src="assets/a/m.png" alignV="center" align="center"/>
+
+<Image y="1868" x="307" src="assets/line.png" alignV="center" align="center"/>
+
+<Image y="1815" x="400" srcid="int(#day_of_week)" src="assets/a/week.png" alignV="center" align="center"/>
+
+<Image y="1818" x="150" srcid="int(#civet_code_fr/10)" src="assets/a/date.png" alignV="center" align="center"/>
+
+<Image y="1818" x="180" srcid="int(#civet_code_fr%10)" src="assets/a/date.png" alignV="center" align="center"/>
+
+<Image y="1818" x="205" src="assets/a/date_dot.png" alignV="center" align="center"/>
+
+<Image y="1818" x="230" srcid="int(#date/10)" src="assets/a/date.png" alignV="center" align="center"/>
+
+<Image y="1818" x="260" srcid="int(#date%10)" src="assets/a/date.png" alignV="center" align="center"/>
+
+
+-<Group visibility="ne(#civet_code_bj,5)">
+
+
+-<Group x="ifelse(ge(#civet_code_fq,11),-24,0)">
+
+<Image y="1931" x="211" src="assets/a/lunar_str.png" alignV="center" align="center"/>
+
+</Group>
+
+<Image y="1931" x="283" srcid="int(#civet_code_fq/10)" src="assets/a/yy.png" alignV="center" align="center" visibility="ge(#civet_code_fq,11)"/>
+
+
+-<Group x="ifelse(ge(#civet_code_fq,11),24,0)">
+
+<Image y="1931" x="283" srcid="ifelse(eq(int(#civet_code_fq%10),1),11,int(#civet_code_fq%10))" src="assets/a/yy.png" alignV="center" align="center"/>
+
+<Image y="1932" x="330" src="assets/a/yy_dot.png" alignV="center" align="center"/>
+
+<Image y="1931" x="380" srcid="int(#civet_code_by/10)-1" src="assets/a/dm.png" alignV="center" align="center"/>
+
+<Image y="1932" x="428" srcid="ifelse(eq(int(#civet_code_by%10),0),10,int(#civet_code_by%10))" src="assets/a/yy.png" alignV="center" align="center"/>
+
+</Group>
+
+</Group>
+
+
+-<Group visibility="eq(#civet_code_bj,5)">
+
+<DateTime y="1921" x="306" alignV="center" align="center" size="58" shadowRadius="8" shadowDy="5" shadowDx="0" shadowColor="#80000000" format="农历NNNN" color="#ffffff" Radius="6"/>
+
+</Group>
+
+</Group>
+
+
+-<Group visibility="eq(#civet_code_di,1)">
+
+<Image y="1472" x="236" srcid="int(#civet_code_cd/10)" src="assets/b/h.png" alignV="center" align="center"/>
+
+<Image y="1472" x="386" srcid="int(#civet_code_cd%10)" src="assets/b/h.png" alignV="center" align="center"/>
+
+<Image y="1666" x="286" srcid="int(#minute/10)" src="assets/b/m.png" alignV="center" align="center"/>
+
+<Image y="1666" x="401" srcid="int(#minute%10)" src="assets/b/m.png" alignV="center" align="center"/>
+
+<DateTime y="1809" x="306" alignV="center" align="center" size="58" shadowRadius="8" shadowDy="5" shadowDx="0" shadowColor="#4d000000" format="MM｜dd EEEE" color="#ffffff" Radius="6"/>
+
+<DateTime y="1910" x="306" alignV="center" align="center" size="58" shadowRadius="8" shadowDy="5" shadowDx="0" shadowColor="#4d000000" format="农历NNNN" color="#ffffff" Radius="6"/>
+
+</Group>
+
+</Group>
+
+
+-<Group visibility="eq(#civet_code_fc,0)" alias="Weather">
+
+<Image y="1170" x="231" srcid="#civet_code_ey" src="assets/weather_icon.png" alignV="center" align="center"/>
+
+<Text y="1286-#civet_code_eq" x="130" alignV="center" align="left" visibility="eq(#civet_code_bj,0)" size="75" format="%s %d°" color="#ffffff" paras="@cur_weather,#cur_weather_temp"/>
+
+<Text y="1286-#civet_code_eq" x="130" alignV="center" align="left" visibility="eq(#civet_code_bj,2)" size="75" format="%s %d°" color="#ffffff" paras="@Weather.today.weatherIconDes,#Weather.today.currentTem"/>
+
+<Text y="1286-#civet_code_eq" x="130" alignV="center" align="left" visibility="eq(#civet_code_bj,4)" size="75" color="#ffffff" text="晴 10°"/>
+
+<Text y="1286-#civet_code_eq" x="130" alignV="center" align="left" visibility="eq(#civet_code_bj,5)" size="75" format="%s %s" color="#ffffff" paras="@weather_condition,@weather_cur_temp"/>
+
+</Group>
+
+
+-<Group visibility="eq(#civet_code_el,0)" alias="Steps.Count">
+
+
+-<Group visibility="eq(#civet_code_bj,0)">
+
+<Image y="2033" x="177" src="assets/clock_icon.png" alignV="center" align="center"/>
+
+<Text y="2033" x="226" alignV="center" align="left" size="58" shadowRadius="4" shadowDy="2" shadowDx="0" shadowColor="#80000000" format="今年还剩%d天" color="#ffffff" Radius="4" paras="#civet_code_v"/>
+
+</Group>
+
+
+-<Group visibility="ne(#civet_code_bj,0)">
+
+<Image y="2028" x="176" src="assets/steps_icon.png" alignV="center" align="center"/>
+
+<Text y="2033" x="226" alignV="center" align="left" visibility="ne(#civet_code_bj,4)" size="58" shadowRadius="4" shadowDy="2" shadowDx="0" shadowColor="#80000000" format="%d" color="#ffffff" Radius="4" paras="#steps_value"/>
+
+<Text y="2033" x="226" alignV="center" align="left" visibility="eq(#civet_code_bj,4)" size="58" shadowRadius="4" shadowDy="2" shadowDx="0" shadowColor="#80000000" format="%d" color="#ffffff" Radius="4" paras="69877"/>
+
+</Group>
+
+</Group>
+
+
+-<Group x="580*(1-#civet_code_fk*#civet_code_fk*#civet_code_fk)" visibility="ne(#civet_code_fk,0)" alpha="255*#civet_code_fk*#civet_code_fk*#civet_code_fk">
+
+<Image y="1698" x="765" src="assets/menu_bar.png" alignV="center" align="center"/>
+
+</Group>
+
+
+-<Group y="-1120*(1-#civet_code_dm*#civet_code_dm*#civet_code_dm)" visibility="ne(#civet_code_dm,0)" alpha="255*#civet_code_dm*#civet_code_dm*#civet_code_dm">
+
+<Image y="654" x="540" src="assets/down_bg.png" alignV="center" align="center"/>
+
+<Image y="438" x="266" srcid="ifelse(eq(#civet_code_di,0),1,0)" src="assets/set_clock_a.png" alignV="center" align="center"/>
+
+<Image y="868" x="266" srcid="ifelse(eq(#civet_code_di,1),1,0)" src="assets/set_clock_b.png" alignV="center" align="center"/>
+
+<Image y="355" x="556" srcid="1-#civet_code_fc" src="assets/set_weather.png" alignV="center" align="center"/>
+
+<Image y="355" x="806" srcid="1-#civet_code_el" src="assets/set_secinfo_a.png" alignV="center" align="center" visibility="eq(#civet_code_bj,0)"/>
+
+<Image y="355" x="806" srcid="1-#civet_code_el" src="assets/set_secinfo_b.png" alignV="center" align="center" visibility="ne(#civet_code_bj,0)"/>
+
+<Image y="632" x="681" srcid="ifelse(eq(#mBzIds,0),1,0)" src="assets/set_ani_a.png" alignV="center" align="center"/>
+
+<Image y="744" x="681" srcid="ifelse(eq(#mBzIds,1),1,0)" src="assets/set_ani_b.png" alignV="center" align="center"/>
+
+<Image y="856" x="681" srcid="ifelse(eq(#mBzIds,2),1,0)" src="assets/set_ani_c.png" alignV="center" align="center"/>
+
+<Image y="968" x="588" srcid="ifelse(eq(#civet_code_dg,0),1,0)" src="assets/set_color_a.png" alignV="center" align="center"/>
+
+<Image y="968" x="778" srcid="ifelse(eq(#civet_code_dg,1),1,0)" src="assets/set_color_b.png" alignV="center" align="center"/>
+
+</Group>
+
+</Group>
+
+<Image srcid="round(#civet_code_db)" src="assets/assets.png" alpha="0"/>
+
+<Image name="civet_code_du" src="oversea.jpg"/>
+
+<Image y="-1" x="-1" src="close.png" w="1" h="1" visibility="eq(#flashlight,0)"/>
+
+<Image y="-1" x="-1" src="open.png" w="1" h="1" visibility="eq(#flashlight,1)"/>
+
+
+-<Var name="civet_code_db">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" varSpeedFlag="SineFun_Out" time="0"/>
+
+<AniFrame value="360" varSpeedFlag="SineFun_Out" time="6000"/>
+
+<AniFrame value="360" varSpeedFlag="SineFun_Out" time="6600"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<Var name="civet_code_cj">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" time="0"/>
+
+<AniFrame value="1" time="100"/>
+
+</VariableAnimation>
+
+</Var>
+
+<Var name="notification" expression="1"/>
+
+<Var name="civet_code_ce" expression="ifelse(eq(#time_format,1),#hour24,ne(#hour12,0),#hour12,12)"/>
+
+<Var name="civet_code_cf" expression="ifelse(eq(#time_format,1),#civet_code_z,#hour12)"/>
+
+<Var name="civet_code_cd" expression="ifelse(#time_format,#hour24,#hour12)"/>
+
+<Var name="civet_code_cg" expression="ifelse(eq(#screen_height,#raw_screen_height),0,1)" type="number"/>
+
+<Var name="civet_code_et" expression="ne(#civet_code_bj,4)*ifelse(eq(#civet_code_bj,2),2,eq(#civet_code_bj,0)*ne(#frame_rate,0),2,1)" type="number"/>
+
+<CountDownTime name="civet_code_dj" unit="day" date="12-31" countDownType="loop"/>
+
+<CountDownTime name="civet_code_dk" unit="day" date="theDayAfterTomorrow" countDownType="loop"/>
+
+
+-<Button y="0" x="0" w="#screen_width" h="#screen_height">
+
+
+-<Triggers>
+
+
+-<Trigger action="down">
+
+<VariableCommand name="civet_code_bo" expression="0"/>
+
+<VariableCommand name="civet_code_dq" expression="#civet_code_dq+1" type="number" persist="true"/>
+
+</Trigger>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_bo" expression="0"/>
+
+<VariableCommand name="civet_code_dq" expression="#civet_code_dq+1" type="number" persist="true"/>
+
+<VariableCommand name="noticeDown" expression="0" type="number"/>
+
+</Trigger>
+
+
+-<Trigger action="cancel">
+
+<VariableCommand name="noticeDown" expression="0" type="number"/>
+
+</Trigger>
+
+
+-<Trigger action="double">
+
+<VariableCommand name="civet_code_ba" expression="#civet_code_ba+1" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Var name="civet_code_em" expression="#time+#time_sys" threshold="1">
+
+
+-<Trigger>
+
+<VariableCommand name="civet_code_fy" expression="ifelse(eq(#civet_code_bj,50),1,le(abs(#touch_x-#touch_begin_x),24)*le(abs(#touch_y-#touch_begin_y),24))"/>
+
+<VariableCommand name="civet_code_bp" expression="(#screen_height-2340)" type="number"/>
+
+<VariableCommand name="civet_code_dc" expression="ifelse(eq(#mBzIds,0),#civet_code_dd,eq(#mBzIds,1),#civet_code_de,#civet_code_df)" type="number"/>
+
+<VariableCommand name="civet_code_fq" expression="ifelse(eq(#civet_code_bj,2),#lunarMonth,eq(#civet_code_bj,0),#month_lunar,#month_lunar+1)" type="number"/>
+
+<VariableCommand name="civet_code_by" expression="ifelse(eq(#civet_code_bj,2),#lunarDay,#date_lunar)" type="number"/>
+
+<VariableCommand name="civet_code_fr" expression="int(#month+1)" type="number"/>
+
+<VariableCommand name="civet_code_bz" expression="#date" type="number"/>
+
+<VariableCommand name="civet_code_bq" expression="not(ge(#civet_code_z,6)*le(#civet_code_z,18))"/>
+
+<VariableCommand name="civet_code_dv" expression="ifelse(eq(#civet_code_bj,5),#civet_code_cp,#civet_code_cv)" type="number"/>
+
+<VariableCommand name="civet_code_dw" expression="ifelse(eq(#civet_code_bj,5),#civet_code_cq,#civet_code_cw)" type="number"/>
+
+<VariableCommand name="civet_code_dx" expression="ifelse(eq(#civet_code_bj,5),#civet_code_cr,#civet_code_cx)" type="number"/>
+
+<VariableCommand name="civet_code_dy" expression="ifelse(eq(#civet_code_bj,5),#civet_code_cs,#civet_code_cy)" type="number"/>
+
+<VariableCommand name="civet_code_dz" expression="ifelse(eq(#civet_code_bj,5),#civet_code_ct,#civet_code_cz)" type="number"/>
+
+<VariableCommand name="civet_code_ea" expression="ifelse(eq(#civet_code_bj,5),#civet_code_cu,#civet_code_da)" type="number"/>
+
+<VariableCommand name="civet_code_dd" expression="min(#civet_code_dd+#civet_code_ch*60/75,#civet_code_df)" type="number" condition="eq(#mBzIds,0)"/>
+
+<VariableCommand name="civet_code_de" expression="min(#civet_code_de+#civet_code_ch*60/75,#civet_code_df)" type="number" condition="eq(#mBzIds,1)*eq(#mBzAni_d,1)"/>
+
+<VariableCommand name="civet_code_de" expression="max(#civet_code_de-#civet_code_ch*60/75,0)" type="number" condition="eq(#mBzIds,1)*eq(#mBzAni_d,0)"/>
+
+</Trigger>
+
+</Var>
+
+<Var name="civet_code_en" expression="int(sqrt(100)/#civet_code_et)" type="number"/>
+
+<Var name="civet_code_es" expression="int(sqrt(90)/#civet_code_et)" type="number"/>
+
+<Var name="civet_code_er" expression="int(sqrt(80)/#civet_code_et)" type="number"/>
+
+<Var name="civet_code_eq" expression="int(sqrt(75)/#civet_code_et)" type="number"/>
+
+<Var name="civet_code_ep" expression="int(sqrt(60)/#civet_code_et)" type="number"/>
+
+<Var name="civet_code_eo" expression="int(sqrt(50)/#civet_code_et)" type="number"/>
+
+
+-<Var name="civet_code_f" expression="#time" threshold="1">
+
+
+-<Trigger>
+
+<VariableCommand name="civet_code_k" expression="ifelse(eq(#ampm,1)*eq(#time_format,0),#hour+12,eq(#ampm,0)*eq(#time_format,0)*eq(#hour,12),0,#hour)"/>
+
+<VariableCommand name="civet_code_l" expression="ifelse(eq(#ampm,1)*eq(#time_format,0)*lt(#hour12,12),#hour12+12,eq(#ampm,0)*eq(#time_format,0)*eq(#hour,12),0,#hour24)"/>
+
+<VariableCommand name="civet_code_m" expression="ifelse(gt(#civet_code_k,24),23-#civet_code_k+12,23-#civet_code_k)"/>
+
+<VariableCommand name="civet_code_n" expression="23-#civet_code_l"/>
+
+<VariableCommand name="civet_code_o" expression="ifelse(gt(#civet_code_l,24),#civet_code_n+12,#civet_code_n)"/>
+
+<VariableCommand name="civet_code_r" expression="ifelse(eq(#time_format,2),#civet_code_m,#civet_code_o)"/>
+
+<VariableCommand name="civet_code_p" expression="23-#hour"/>
+
+<VariableCommand name="civet_code_s" expression="23-#civet_code_cb"/>
+
+<VariableCommand name="civet_code_cc" expression="#hour24"/>
+
+<VariableCommand name="civet_code_ca" expression="#hour"/>
+
+<VariableCommand name="civet_code_ci" expression="ifelse(eq(#hour24,#hour12),0,1)"/>
+
+<VariableCommand name="civet_code_cb" expression="ifelse(#civet_code_ci,#civet_code_cc,#civet_code_ca)"/>
+
+<VariableCommand name="civet_code_j" expression="59-#civet_code_fx"/>
+
+<VariableCommand name="civet_code_h" expression="59-#minute"/>
+
+<VariableCommand name="civet_code_u" expression="ifelse(lt((#day_of_week-1),0),#day_of_week-1,7-abs(#day_of_week-1))"/>
+
+<VariableCommand name="civet_code_t" expression="ifelse(eq(#civet_code_u,7),0,#civet_code_u)"/>
+
+<VariableCommand name="civet_code_fi" expression="int(#day_of_week-1)" type="number"/>
+
+<VariableCommand name="civet_code_dl" expression="ifelse(eq(#civet_code_fi,0),5,eq(#civet_code_fi,6),6,5-#civet_code_fi)" type="number"/>
+
+<VariableCommand name="civet_code_ds" expression="ifelse(eq(int(#month+1),1),31,eq(int(#month+1),2),28+#lyz1,eq(int(#month+1),3),31,eq(int(#month+1),4),30,eq(int(#month+1),5),31,eq(int(#month+1),6),30,eq(int(#month+1),7),31,eq(int(#month+1),8),31,eq(int(#month+1),9),30,eq(int(#month+1),10),31,eq(int(#month+1),11),30,eq(int(#month+1),12),31,31)"/>
+
+<VariableCommand name="civet_code_i" expression="#civet_code_ds-#date"/>
+
+<VariableCommand name="civet_code_q" expression="ifelse(#civet_code_ci,23-#civet_code_cb,23-#hour24)"/>
+
+<VariableCommand name="civet_code_g" expression="ifelse(eq(#civet_code_bj,0),#civet_code_q,eq(#civet_code_bj,2)+eq(#civet_code_bj,2),#civet_code_p,eq(#Civet,5)+eq(#civet_code_bj,5),#civet_code_s,#civet_code_r)"/>
+
+<VariableCommand name="civet_code_z" expression="23-#civet_code_g"/>
+
+<VariableCommand name="civet_code_dp" expression="100-round((#civet_code_z*60+#minute)/1440*100)"/>
+
+<VariableCommand name="civet_code_fj" expression="100-round(ifelse(eq(#day_of_week,1),1,(#day_of_week-1)/7)*100)"/>
+
+<VariableCommand name="civet_code_dr" expression="100-round(#date/#civet_code_ds*100)"/>
+
+<VariableCommand name="civet_code_fp" expression="round(#civet_code_v/(365+#lya)*100)"/>
+
+<VariableCommand name="civet_code_fx" expression="ifelse(eq(#civet_code_bj,5)*eq(#civet_code_fn,1),int((#time%60000)/1000),#second)"/>
+
+<VariableCommand name="civet_code_bi" expression="#hour12*30+#minute/2"/>
+
+<VariableCommand name="civet_code_bk" expression="#minute*6"/>
+
+<VariableCommand name="civet_code_bn" expression="#civet_code_fx*6"/>
+
+<VariableCommand name="civet_code_bx" expression="#year+1"/>
+
+<VariableCommand name="civet_code_bw" expression="eq((#year%4),0)*ne((#year%100),0)+eq((#year%400),0)"/>
+
+<VariableCommand name="civet_code_bu" expression="(ge(#month,1)*31+(28+#civet_code_bw)*ge(#month,2)+ge(#month,3)*31+ge(#month,4)*30+ge(#month,5)*31+ge(#month,6)*30+ge(#month,7)*31+ge(#month,8)*31+ge(#month,9)*30+ge(#month,10)*31+ge(#month,11)*30+ge(#month,12)*31)+(365*#year+int(#year/4)+int(#year/400)-int(#year/100))+#date-1+2"/>
+
+<VariableCommand name="civet_code_bv" expression="(365*#civet_code_bx+int(#civet_code_bx/4)+int(#civet_code_bx/400)-int(#civet_code_bx/100))+2"/>
+
+<VariableCommand name="civet_code_v" expression="abs(#civet_code_bv-#civet_code_bu)+ifelse(eq(#civet_code_bj,2),0,-1)"/>
+
+<VariableCommand name="civet_code_w" expression="int(#civet_code_v/100%10)"/>
+
+<VariableCommand name="civet_code_x" expression="int(#civet_code_v/10%10)"/>
+
+<VariableCommand name="civet_code_y" expression="int(#civet_code_v%10)"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Button y="0" x="0" w="#screen_width" h="#screen_height">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_fl" expression="int(#civet_code_fl+1)%2" condition="ge(abs(#touch_x-#touch_begin_x),180)*ifelse(eq(#civet_code_bj,0),gt(#touch_x,#touch_begin_x),ifelse(#civet_code_fl,gt(#touch_x,#touch_begin_x),lt(#touch_x,#touch_begin_x)))" persist="true"/>
+
+<VariableCommand name="civet_code_dn" expression="int(#civet_code_dn+1)%2" condition="ge(abs(#touch_y-#touch_begin_y),180)*gt(#touch_y,#touch_begin_y)" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Var name="civet_code_bm">
+
+
+-<VariableAnimation>
+
+<AniFrame value="1" time="0"/>
+
+<AniFrame value="864000" time="864000"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<Var name="civet_code_fv" expression="ifelse(eq(#civet_code_bj,2),#time,#civet_code_bm+eq(#civet_code_bj,0)*int(#time_sys/300))" threshold="1">
+
+
+-<Trigger>
+
+<VariableCommand name="civet_code_ec" expression="ifelse(ne(#civet_code_bj,2)*ne(#civet_code_bj,0),#civet_code_ed,eq(#civet_code_bj,0),0.3,1)" condition="ne(#civet_code_eb,1)*ne(#civet_code_fw,0)"/>
+
+<VariableCommand name="civet_code_fn" expression="eq(#screen_width/#screen_height,1440/2560)*eq(#screen_density,0)" condition="1"/>
+
+<VariableCommand name="civet_code_fo" expression="eq(#screen_width/#screen_height,1440/2560)*eq(#screen_density,480)" condition="1"/>
+
+<VariableCommand name="civet_code_fm" expression="eq(#screen_width/#screen_height,1440/2560)*ne(#screen_density,0)" condition="1"/>
+
+<VariableCommand name="civet_code_do" expression="eq(#screen_width/#screen_height,1440/3216)" condition="1"/>
+
+<VariableCommand name="civet_code_ef" expression="ifelse(eq(#screen_height,2160)+eq(#screen_height,2340)+eq(#screen_height,2256)+eq(#screen_height,2376),6,eq(#civet_code_fn,1),0.188,eq(#civet_code_fo,1),5,eq(#civet_code_fm,1),5,1)" condition="1"/>
+
+<VariableCommand name="civet_code_ee" expression="ifelse(eq(#screen_height,2280),6,eq(#civet_code_do,1),1,1)" condition="1"/>
+
+<VariableCommand name="civet_code_ed" expression="ifelse(eq(#civet_code_bj,5),3,eq(#civet_code_bj,0),#civet_code_ee,1)" condition="1"/>
+
+<VariableCommand name="civet_code_eb" expression="min(#civet_code_eb+(88/2/2.2/1000/#civet_code_ec),1)" condition="ne(#civet_code_eb,1)*ne(#civet_code_fw,0)"/>
+
+<VariableCommand name="civet_code_eg" expression="min(#civet_code_eg+(88/2/2.2/1000/#civet_code_ec),1)" condition="ge(#civet_code_eb,0.25)"/>
+
+<VariableCommand name="civet_code_eh" expression="min(#civet_code_eh+(88/2/2.2/1000/#civet_code_ec),1)" condition="ge(#civet_code_eb,0.5)"/>
+
+<VariableCommand name="civet_code_ei" expression="min(#civet_code_ei+(88/2/2.2/1000/#civet_code_ec),1)" condition="ge(#civet_code_eb,0.75)"/>
+
+<VariableCommand name="civet_code_ej" expression="min(#civet_code_ej+(88/2/2.2/1000/#civet_code_ec),1)" condition="ge(#civet_code_eb,1)"/>
+
+<VariableCommand name="civet_code_ek" expression="min(#civet_code_ek+(88/2/2.2/1000/#civet_code_ec),1)" condition="ge(#civet_code_eb,0.875)"/>
+
+<VariableCommand name="civet_code_bl" expression="3.1415926535898"/>
+
+<VariableCommand name="civet_code_bb" expression="1.70158"/>
+
+<VariableCommand name="civet_code_bc" expression="1.525*#civet_code_bb"/>
+
+<VariableCommand name="civet_code_bd" expression="1+#civet_code_bb"/>
+
+<VariableCommand name="civet_code_be" expression="(2*#civet_code_bl)/3"/>
+
+<VariableCommand name="civet_code_bf" expression="(2*#civet_code_bl)/4.5"/>
+
+<VariableCommand name="civet_code_bh" expression="7.5625"/>
+
+<VariableCommand name="civet_code_bg" expression="2.75"/>
+
+<VariableCommand name="civet_code_cv" expression="1+#civet_code_bd*(#civet_code_eb-1)*(#civet_code_eb-1)*(#civet_code_eb-1)+#civet_code_bb*(#civet_code_eb-1)*(#civet_code_eb-1)" condition="ne(#civet_code_eb,1)*ne(#civet_code_fw,0)"/>
+
+<VariableCommand name="civet_code_cw" expression="1+(#civet_code_bd-1)*(#civet_code_eg-1)*(#civet_code_eg-1)*(#civet_code_eg-1)+(#civet_code_bb-1)*(#civet_code_eg-1)*(#civet_code_eg-1)" condition="ge(#civet_code_eb,0.25)"/>
+
+<VariableCommand name="civet_code_cx" expression="1+(#civet_code_bd-1)*(#civet_code_eh-1)*(#civet_code_eh-1)*(#civet_code_eh-1)+(#civet_code_bb-1)*(#civet_code_eh-1)*(#civet_code_eh-1)" condition="ge(#civet_code_eb,0.5)"/>
+
+<VariableCommand name="civet_code_cy" expression="1+(#civet_code_bd-1)*(#civet_code_ei-1)*(#civet_code_ei-1)*(#civet_code_ei-1)+(#civet_code_bb-1)*(#civet_code_ei-1)*(#civet_code_ei-1)" condition="ge(#civet_code_eb,0.75)"/>
+
+<VariableCommand name="civet_code_cz" expression="1+(#civet_code_bd-1)*(#civet_code_ej-1)*(#civet_code_ej-1)*(#civet_code_ej-1)+(#civet_code_bb-1)*(#civet_code_ej-1)*(#civet_code_ej-1)" condition="ge(#civet_code_eb,1)"/>
+
+<VariableCommand name="civet_code_da" expression="1+(#civet_code_bd-1)*(#civet_code_ek-1)*(#civet_code_ek-1)*(#civet_code_ek-1)+(#civet_code_bb-1)*(#civet_code_ek-1)*(#civet_code_ek-1)" condition="ge(#civet_code_eb,0.875)"/>
+
+<VariableCommand name="civet_code_fk" expression="min(#civet_code_fk+(88/1.8/2.2/1000/#civet_code_ec),1)" condition="eq(#civet_code_fl,1)" persist="true"/>
+
+<VariableCommand name="civet_code_fk" expression="max(#civet_code_fk-(88/1.28/2.2/1000/#civet_code_ec),0)" condition="eq(#civet_code_fl,0)" persist="true"/>
+
+<VariableCommand name="civet_code_dm" expression="min(#civet_code_dm+(88/2/2.2/1000/#civet_code_ec),1)" condition="eq(#civet_code_dn,1)" persist="true"/>
+
+<VariableCommand name="civet_code_dm" expression="max(#civet_code_dm-(88/1.6/2.2/1000/#civet_code_ec),0)" condition="eq(#civet_code_dn,0)" persist="true"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_bt" expression="#mScreenId_Var" threshold="1">
+
+
+-<Trigger>
+
+<VariableCommand name="civet_code_fw" expression="0"/>
+
+<VariableCommand name="civet_code_fw" expression="1" delay="400"/>
+
+<VariableCommand name="civet_code_eb" expression="0"/>
+
+<VariableCommand name="civet_code_eg" expression="0"/>
+
+<VariableCommand name="civet_code_eh" expression="0"/>
+
+<VariableCommand name="civet_code_ei" expression="0"/>
+
+<VariableCommand name="civet_code_ej" expression="0"/>
+
+<VariableCommand name="civet_code_ek" expression="0"/>
+
+<VariableCommand name="civet_code_cv" expression="0"/>
+
+<VariableCommand name="civet_code_cw" expression="0"/>
+
+<VariableCommand name="civet_code_cx" expression="0"/>
+
+<VariableCommand name="civet_code_cy" expression="0"/>
+
+<VariableCommand name="civet_code_cz" expression="0"/>
+
+<VariableCommand name="civet_code_da" expression="0"/>
+
+<Command value="stop" condition="ne(#civet_code_bj,4)" target="civet_code_cp.animation"/>
+
+<Command value="play(0,0)" condition="eq(#civet_code_bj,4)" target="civet_code_cp.animation"/>
+
+<Command value="play" target="civet_code_cp.animation"/>
+
+<Command value="stop" condition="ne(#civet_code_bj,4)" target="civet_code_cq.animation"/>
+
+<Command value="play(0,0)" condition="eq(#civet_code_bj,4)" target="civet_code_cq.animation"/>
+
+<Command value="play" target="civet_code_cq.animation"/>
+
+<Command value="stop" condition="ne(#civet_code_bj,4)" target="civet_code_cr.animation"/>
+
+<Command value="play(0,0)" condition="eq(#civet_code_bj,4)" target="civet_code_cr.animation"/>
+
+<Command value="play" target="civet_code_cr.animation"/>
+
+<Command value="stop" condition="ne(#civet_code_bj,4)" target="civet_code_cs.animation"/>
+
+<Command value="play(0,0)" condition="eq(#civet_code_bj,4)" target="civet_code_cs.animation"/>
+
+<Command value="play" target="civet_code_cs.animation"/>
+
+<Command value="stop" condition="ne(#civet_code_bj,4)" target="civet_code_ct.animation"/>
+
+<Command value="play(0,0)" condition="eq(#civet_code_bj,4)" target="civet_code_ct.animation"/>
+
+<Command value="play" target="civet_code_ct.animation"/>
+
+<Command value="stop" condition="ne(#civet_code_bj,4)" target="civet_code_cu.animation"/>
+
+<Command value="play(0,0)" condition="eq(#civet_code_bj,4)" target="civet_code_cu.animation"/>
+
+<Command value="play" target="civet_code_cu.animation"/>
+
+</Trigger>
+
+</Var>
+
+
+-<Var name="civet_code_cp">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" time="0"/>
+
+<AniFrame value="0.32782798" time="100"/>
+
+<AniFrame value="0.57780224" time="200"/>
+
+<AniFrame value="0.76013226" time="300"/>
+
+<AniFrame value="0.88502752" time="400"/>
+
+<AniFrame value="0.96269750" time="500"/>
+
+<AniFrame value="1.00335168" time="600"/>
+
+<AniFrame value="1.01719954" time="700"/>
+
+<AniFrame value="1.01445056" time="800"/>
+
+<AniFrame value="1.00531422" time="900"/>
+
+<AniFrame value="1" time="1000"/>
+
+<AniFrame value="1" time="1876461209000"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<Var name="civet_code_cq">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" time="0"/>
+
+<AniFrame value="0" time="200"/>
+
+<AniFrame value="0.32782798" time="300"/>
+
+<AniFrame value="0.57780224" time="400"/>
+
+<AniFrame value="0.76013226" time="500"/>
+
+<AniFrame value="0.88502752" time="600"/>
+
+<AniFrame value="0.96269750" time="700"/>
+
+<AniFrame value="1.00335168" time="800"/>
+
+<AniFrame value="1.01719954" time="900"/>
+
+<AniFrame value="1.01445056" time="1000"/>
+
+<AniFrame value="1.00531422" time="1100"/>
+
+<AniFrame value="1" time="1200"/>
+
+<AniFrame value="1" time="1876461209000"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<Var name="civet_code_cr">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" time="0"/>
+
+<AniFrame value="0" time="400"/>
+
+<AniFrame value="0.32782798" time="500"/>
+
+<AniFrame value="0.57780224" time="600"/>
+
+<AniFrame value="0.76013226" time="700"/>
+
+<AniFrame value="0.88502752" time="800"/>
+
+<AniFrame value="0.96269750" time="900"/>
+
+<AniFrame value="1.00335168" time="1000"/>
+
+<AniFrame value="1.01719954" time="1100"/>
+
+<AniFrame value="1.01445056" time="1200"/>
+
+<AniFrame value="1.00531422" time="1300"/>
+
+<AniFrame value="1" time="1400"/>
+
+<AniFrame value="1" time="1876461209000"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<Var name="civet_code_cs">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" time="0"/>
+
+<AniFrame value="0" time="600"/>
+
+<AniFrame value="0.32782798" time="700"/>
+
+<AniFrame value="0.57780224" time="800"/>
+
+<AniFrame value="0.76013226" time="900"/>
+
+<AniFrame value="0.88502752" time="1000"/>
+
+<AniFrame value="0.96269750" time="1100"/>
+
+<AniFrame value="1.00335168" time="1200"/>
+
+<AniFrame value="1.01719954" time="1300"/>
+
+<AniFrame value="1.01445056" time="1400"/>
+
+<AniFrame value="1.00531422" time="1500"/>
+
+<AniFrame value="1" time="1600"/>
+
+<AniFrame value="1" time="1876461209000"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<Var name="civet_code_ct">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" time="0"/>
+
+<AniFrame value="0" time="800"/>
+
+<AniFrame value="0.32782798" time="900"/>
+
+<AniFrame value="0.57780224" time="1000"/>
+
+<AniFrame value="0.76013226" time="1100"/>
+
+<AniFrame value="0.88502752" time="1200"/>
+
+<AniFrame value="0.96269750" time="1300"/>
+
+<AniFrame value="1.00335168" time="1400"/>
+
+<AniFrame value="1.01719954" time="1500"/>
+
+<AniFrame value="1.01445056" time="1600"/>
+
+<AniFrame value="1.00531422" time="1700"/>
+
+<AniFrame value="1" time="1800"/>
+
+<AniFrame value="1" time="1876461209000"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<Var name="civet_code_cu">
+
+
+-<VariableAnimation>
+
+<AniFrame value="0" time="0"/>
+
+<AniFrame value="0" time="1000"/>
+
+<AniFrame value="0.32782798" time="1100"/>
+
+<AniFrame value="0.57780224" time="1200"/>
+
+<AniFrame value="0.76013226" time="1300"/>
+
+<AniFrame value="0.88502752" time="1400"/>
+
+<AniFrame value="0.96269750" time="1500"/>
+
+<AniFrame value="1.00335168" time="1600"/>
+
+<AniFrame value="1.01719954" time="1700"/>
+
+<AniFrame value="1.01445056" time="1800"/>
+
+<AniFrame value="1.00531422" time="1900"/>
+
+<AniFrame value="1" time="2000"/>
+
+<AniFrame value="1" time="1876461209000"/>
+
+</VariableAnimation>
+
+</Var>
+
+
+-<SupportPictorialButton w="1080" h="#screen_height" visibility="1">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="com.heytap.pictorial.action.START_PICTURE_MODE" condition="gt(#touch_begin_x-#touch_x,250)*1" package="com.heytap.pictorial" class="com.heytap.pictorial.ui.slide.PictorialSlideActivity" category="android.intent.category.DEFAULT"/>
+
+</Trigger>
+
+</Triggers>
+
+</SupportPictorialButton>
+
+
+-<Button y="0" x="0" w="#screen_width" h="#screen_height" visibility="1">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<ExternCommand condition="ge(#touch_begin_y-#touch_y,300)*1*eq(0,0)" command="unlock"/>
+
+<ExternCommand condition="ge(#touch_y-#touch_begin_y,300)*1*eq(0,1)" command="unlock"/>
+
+<ExternCommand condition="ge(#touch_x-#touch_begin_x,300)*1*eq(0,2)" command="unlock"/>
+
+<ExternCommand condition="ge(#touch_begin_x-#touch_x,300)*1*eq(0,3)" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+<Image src="statusbar.png" w="#screen_width"/>
+
+
+-<Button y="int(1096+(#civet_code_bp/2))" x="int(116)" w="360" h="224" visibility="eq(#civet_code_bj,2)*(eq(#civet_code_fc,0))">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.miui.weather2" class="com.miui.weather2.ActivityWeatherMain"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.vivo.weather" class="com.vivo.weather.WeatherMain"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.oppo.weather2" class="com.oppo.weather.OppoMainActivity"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.oppo.weather" class="com.coloros.weather.OppoMainActivity"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.coloros.weather" class="com.coloros.weather.OppoMainActivity"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.coloros.weather2" class="com.coloros.weather.OppoMainActivity"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.coloros.weather2" class="com.coloros.weather.main.view.WeatherMainActivity"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.coloros.weather2" class="com.oplus.weather.main.view.WeatherMainActivity"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.huawei.android.totemweather" class="com.huawei.android.totemweather.WeatherHome"/>
+
+<ExternCommand condition="#civet_code_fy" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(1544+(#civet_code_bp/2))" x="int(535)" w="150" h="190" visibility="eq(#civet_code_fl,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.tencent.mm" class="com.tencent.mm.ui.LauncherUI"/>
+
+<ExternCommand condition="#civet_code_fy" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(1544+(#civet_code_bp/2))" x="int(693)" w="150" h="190" visibility="eq(#civet_code_fl,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.tencent.mm" class="com.tencent.mm.plugin.scanner.ui.BaseScanUI"/>
+
+<ExternCommand condition="#civet_code_fy" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(1544+(#civet_code_bp/2))" x="int(850)" w="150" h="190" visibility="eq(#civet_code_fl,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.tencent.mm" class="com.tencent.mm.plugin.offline.ui.WalletOfflineEntranceUI"/>
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.tencent.mm" class="com.tencent.mm.plugin.offline.ui.WalletOfflineCoinPurseUI"/>
+
+<ExternCommand condition="#civet_code_fy" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(1776+(#civet_code_bp/2))" x="int(535)" w="150" h="190" visibility="eq(#civet_code_fl,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.eg.android.AlipayGphone" class="com.eg.android.AlipayGphone.AlipayLogin"/>
+
+<ExternCommand condition="#civet_code_fy" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(1776+(#civet_code_bp/2))" x="int(693)" w="150" h="190" visibility="eq(#civet_code_fl,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.eg.android.AlipayGphone" class="com.alipay.mobile.scan.as.main.MainCaptureActivity"/>
+
+<ExternCommand condition="#civet_code_fy" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(1776+(#civet_code_bp/2))" x="int(850)" w="150" h="190" visibility="eq(#civet_code_fl,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<IntentCommand action="android.intent.action.MAIN" condition="#civet_code_fy" package="com.eg.android.AlipayGphone" class="com.alipay.mobile.onsitepay9.payer.OspTabHostActivity"/>
+
+<ExternCommand condition="#civet_code_fy" command="unlock"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(223+(#civet_code_bp/2))" x="int(131)" w="270" h="430" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_di" expression="0" type="number" condition="#civet_code_fy" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(653+(#civet_code_bp/2))" x="int(131)" w="270" h="430" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_di" expression="1" type="number" condition="#civet_code_fy" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(272+(#civet_code_bp/2))" x="int(473)" w="166" h="166" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_fc" expression="not(#civet_code_fc)" type="number" condition="#civet_code_fy" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(272+(#civet_code_bp/2))" x="int(723)" w="166" h="166" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_el" expression="not(#civet_code_el)" type="number" condition="#civet_code_fy" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(584+(#civet_code_bp/2))" x="int(512)" w="338" h="97" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_dd" expression="#civet_code_df" type="number" condition="#civet_code_fy" persist="true"/>
+
+<VariableCommand name="mBzIds" expression="0" type="number" condition="#civet_code_fy" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(584+112+(#civet_code_bp/2))" x="int(512)" w="338" h="97" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_de" expression="0" type="number" condition="#civet_code_fy"/>
+
+<VariableCommand name="mBzIds" expression="1" type="number" condition="#civet_code_fy" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(584+112*2+(#civet_code_bp/2))" x="int(512)" w="338" h="97" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="mBzIds" expression="2" type="number" condition="#civet_code_fy" persist="true"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(920+(#civet_code_bp/2))" x="int(517)" w="143" h="97" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_dg" expression="0" type="number" condition="#civet_code_fy" persist="true"/>
+
+<VariableCommand name="civet_code_ex" expression="#civet_code_ex+1" condition="eq(#civet_code_dg,0)"/>
+
+<VariableCommand name="civet_code_cn" expression="#civet_code_cn+1" condition="eq(#civet_code_dg,1)"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<Button y="int(920+(#civet_code_bp/2))" x="int(707)" w="143" h="97" visibility="eq(#civet_code_dn,1)">
+
+
+-<Triggers>
+
+
+-<Trigger action="up">
+
+<VariableCommand name="civet_code_dg" expression="1" type="number" condition="#civet_code_fy" persist="true"/>
+
+<VariableCommand name="civet_code_ex" expression="#civet_code_ex+1" condition="eq(#civet_code_dg,0)"/>
+
+<VariableCommand name="civet_code_cn" expression="#civet_code_cn+1" condition="eq(#civet_code_dg,1)"/>
+
+</Trigger>
+
+</Triggers>
+
+</Button>
+
+
+-<ExternalCommands>
+
+
+-<Trigger action="pause">
+
+<VariableCommand name="civet_code_bo" expression="1"/>
+
+<SoundCommand sound="null.mp3" volume="0" loop="false" keepCur="false"/>
+
+<VariableCommand name="civet_code_fw" expression="1" delay="100"/>
+
+<VariableCommand name="civet_code_eb" expression="0"/>
+
+<VariableCommand name="civet_code_eg" expression="0"/>
+
+<VariableCommand name="civet_code_eh" expression="0"/>
+
+<VariableCommand name="civet_code_ei" expression="0"/>
+
+<VariableCommand name="civet_code_ej" expression="0"/>
+
+<VariableCommand name="civet_code_ek" expression="0"/>
+
+<VariableCommand name="civet_code_cv" expression="0"/>
+
+<VariableCommand name="civet_code_cw" expression="0"/>
+
+<VariableCommand name="civet_code_cx" expression="0"/>
+
+<VariableCommand name="civet_code_cy" expression="0"/>
+
+<VariableCommand name="civet_code_cz" expression="0"/>
+
+<VariableCommand name="civet_code_da" expression="0"/>
+
+<Command value="stop" target="civet_code_cp.animation"/>
+
+<Command value="play" target="civet_code_cp.animation"/>
+
+<Command value="stop" target="civet_code_cq.animation"/>
+
+<Command value="play" target="civet_code_cq.animation"/>
+
+<Command value="stop" target="civet_code_cr.animation"/>
+
+<Command value="play" target="civet_code_cr.animation"/>
+
+<Command value="stop" target="civet_code_cs.animation"/>
+
+<Command value="play" target="civet_code_cs.animation"/>
+
+<Command value="stop" target="civet_code_ct.animation"/>
+
+<Command value="play" target="civet_code_ct.animation"/>
+
+<Command value="stop" target="civet_code_cu.animation"/>
+
+<Command value="play" target="civet_code_cu.animation"/>
+
+<VariableCommand name="civet_code_fl" expression="0" condition="eq(#civet_code_dq,0)"/>
+
+<VariableCommand name="civet_code_fk" expression="#civet_code_fl"/>
+
+<VariableCommand name="civet_code_dn" expression="0"/>
+
+<VariableCommand name="civet_code_dm" expression="0"/>
+
+<VariableCommand name="civet_code_dd" expression="0"/>
+
+<VariableCommand name="civet_code_de" expression="0"/>
+
+</Trigger>
+
+
+-<Trigger action="resume">
+
+<VariableCommand name="civet_code_bj" expression="ifelse(#__thememanager_version,4,#lunarDay,2,eq(#lunarDay,0)*eq(#cur_weather_temp,0)*eq(#__thememanager_version,0),5,eq(#lunarDay,0)*eq(#cur_weather_temp,0)*eq(#__thememanager_version,0)*ne(#civet_code_dj,0),5,eq(#lunarDay,0)*eq(#cur_weather_temp,0)*eq(#__thememanager_version,0)*ne(#civet_code_dk,0),5,eq(#lunarDay,0)*eq(#cur_weather_temp,0)*eq(#__thememanager_version,0)*ne(#steps_value,0),5,0)" persist="true"/>
+
+<VariableCommand name="civet_code_dt" expression="ifelse(eq(#civet_code_du.bmp_width,0),1,0)" const="true" persist="true" delay="10"/>
+
+<VariableCommand name="civet_code_bo" expression="1"/>
+
+<VariableCommand name="civet_code_fw" expression="1" delay="100"/>
+
+<VariableCommand name="civet_code_eb" expression="0"/>
+
+<VariableCommand name="civet_code_eg" expression="0"/>
+
+<VariableCommand name="civet_code_eh" expression="0"/>
+
+<VariableCommand name="civet_code_ei" expression="0"/>
+
+<VariableCommand name="civet_code_ej" expression="0"/>
+
+<VariableCommand name="civet_code_ek" expression="0"/>
+
+<VariableCommand name="civet_code_cv" expression="0"/>
+
+<VariableCommand name="civet_code_cw" expression="0"/>
+
+<VariableCommand name="civet_code_cx" expression="0"/>
+
+<VariableCommand name="civet_code_cy" expression="0"/>
+
+<VariableCommand name="civet_code_cz" expression="0"/>
+
+<VariableCommand name="civet_code_da" expression="0"/>
+
+<Command value="stop" target="civet_code_cp.animation"/>
+
+<Command value="play" target="civet_code_cp.animation"/>
+
+<Command value="stop" target="civet_code_cq.animation"/>
+
+<Command value="play" target="civet_code_cq.animation"/>
+
+<Command value="stop" target="civet_code_cr.animation"/>
+
+<Command value="play" target="civet_code_cr.animation"/>
+
+<Command value="stop" target="civet_code_cs.animation"/>
+
+<Command value="play" target="civet_code_cs.animation"/>
+
+<Command value="stop" target="civet_code_ct.animation"/>
+
+<Command value="play" target="civet_code_ct.animation"/>
+
+<Command value="stop" target="civet_code_cu.animation"/>
+
+<Command value="play" target="civet_code_cu.animation"/>
+
+<VariableCommand name="civet_code_fl" expression="0" condition="eq(#civet_code_dq,0)"/>
+
+<VariableCommand name="civet_code_fk" expression="#civet_code_fl"/>
+
+<VariableCommand name="civet_code_dn" expression="0"/>
+
+<VariableCommand name="civet_code_dm" expression="0"/>
+
+<VariableCommand name="civet_code_dd" expression="0"/>
+
+<VariableCommand name="civet_code_de" expression="0"/>
+
+<VariableCommand name="civet_code_eu" expression="#civet_code_eu+1" condition="eq(#mBzIds,0)*eq(#civet_code_dg,0)"/>
+
+<VariableCommand name="civet_code_ck" expression="#civet_code_ck+1" condition="eq(#mBzIds,0)*eq(#civet_code_dg,1)"/>
+
+<VariableCommand name="civet_code_ew" expression="#civet_code_ew+1" condition="ge(#mBzIds,1)*eq(#civet_code_dg,0)"/>
+
+<VariableCommand name="civet_code_cm" expression="#civet_code_cm+1" condition="ge(#mBzIds,1)*eq(#civet_code_dg,1)"/>
+
+</Trigger>
+
+</ExternalCommands>
+
+
+-<VariableBinders>
+
+
+-<ContentProviderBinder name="weather1" where="current=1" uri="content://com.oppo.weather.provider.data/attent_city" notifyUri="content://com.oppo.weather.provider.data/attent_city" countName="hasWeather" columns="_id,city_name,city_name_en,city_name_tw">
+
+<Variable name="cityid" type="int" column="_id"/>
+
+<Variable name="cityname" type="string" column="city_name"/>
+
+<Variable name="cityname_en" type="string" column="city_name_en"/>
+
+<Variable name="cityname_tw" type="string" column="city_name_tw"/>
+
+</ContentProviderBinder>
+
+
+-<ContentProviderBinder name="weather2" uri="content://com.oppo.weather.provider.data/weather_info" notifyUri="content://com.oppo.weather.provider.data/weather_info" countName="hasWeather" columns="weather_id,current_weather,current_temp,current_wind_direct,current_wind_power,day_temp,night_temp,day_weather_id,night_weather_id" whereExp="'city_id='+#cityid+' and weather_index=1'" dependency="weather1">
+
+<Variable name="cur_weather" type="string" column="current_weather"/>
+
+<Variable name="cur_weather_temp" type="int" column="current_temp"/>
+
+<Variable name="day_temp" type="int" column="day_temp"/>
+
+<Variable name="night_temp" type="int" column="night_temp"/>
+
+<Variable name="cur_avg_aqi" type="int" column="avg_aqi"/>
+
+</ContentProviderBinder>
+
+</VariableBinders>
+
+</Lockscreen>
